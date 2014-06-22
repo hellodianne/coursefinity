@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Coursefinity</title>
+	</head>
+
+	<body>
+	<ul>
+	{% if article_list %}
+		{% for link in article_list %}
+    	<li>
+    		<a href="{{ link.url }}"><strong>{{ link.title }}</strong></a>
+    	</li>
+    	{% endfor %}
+    {% else %}
+    	<li>No article at present.</li>
+    {% endif %}
+	</ul>
+	</body>
+</html>

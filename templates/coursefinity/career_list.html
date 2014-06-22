@@ -1,0 +1,9 @@
+<ul>
+	{% if career_list %}
+		{% for career in career_list %}
+			<li><a href="/coursefinity/onlinecareer/{{career.url}}"> {{ career.name }}</a></li>
+		{% endfor %}
+	{% else %}
+		<li>No careers at present.</li>
+	{% endif %}
+</ul>

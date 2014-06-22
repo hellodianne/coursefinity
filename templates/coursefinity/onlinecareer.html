@@ -1,0 +1,12 @@
+<h1> {{ career.name }} </h1>
+<p> {{ career.body }} </p>
+{% if program_list %}
+<ul>
+	{% for program in program_list %}
+	<li> <a href="/coursefinity/onlinecareer/{{career.name}}/{{ program.url }}/course_list"> {{ program.name }}</a></li>
+	{% endfor %}
+</ul>
+{% else %}
+<strong>There are no programs present.</strong>
+{% endif %}
+

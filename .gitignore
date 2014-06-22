@@ -1,0 +1,7 @@
+*.pyc
+*.DS_Store
+*.log
+*.tmpproj
+*.db
+.DS_Store
+keys.py

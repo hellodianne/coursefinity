@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Coursefinity</title>
+	</head>
+	<header>
+		<h1>Coursefinity</h1>
+		<nav>
+			<ul>
+				<li><a href="/coursefinity">Home</a></li>
+				<li><a href="/coursefinity/inspiration/">Inspiration</a></li>
+				<li><a href="/coursefinity/blog/">Blog</a></li>
+				<li><a href="/coursefinity/contact/">Contact</a></li>
+			</ul>
+		</nav>
+	</header>
+	<body>
+		{% if career_list %}
+		<ul><li>Career List</li></ul>
+		{% include 'coursefinity/career_list.html' with career_list=career_list %}
+		{% endif%}
+	</body>
+</html>
