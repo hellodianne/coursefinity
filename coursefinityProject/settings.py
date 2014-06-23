@@ -25,7 +25,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 SECRET_KEY = 'z_p3bqsj0=+)rj8m3dx6=acj_&ci36nw(m+vwi$lj6k9jkgf8j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -62,6 +62,15 @@ WSGI_APPLICATION = 'coursefinityProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+#ADDED FOR DEPLOYMENT SETTINGS
+ALLOWED_HOSTS = ['*']
+
+import dj_database_url
+
+DATABASES = { 'default': dj_database_url.config()}
+
+#################################################
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -96,4 +105,5 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     TEMPLATE_PATH,
     )
+
 
