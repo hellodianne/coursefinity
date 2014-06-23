@@ -65,7 +65,7 @@ WSGI_APPLICATION = 'coursefinityProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        #'NAME': 'coursefinity',
+        'NAME': 'coursefinity',
         #'USER': 'dbronola',
         #'PASSWORD': '',
         #'HOST': 'localhost',
