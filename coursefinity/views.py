@@ -29,13 +29,18 @@ def get_program_list():
 
 def index(request):
 
+	return render(request, 'coursefinity/index.html')
+
+
+def coursetracks(request):
+
 	context = RequestContext(request)
 
 	career_list = get_career_list()
 
 	context_dict = {'career_list': career_list}
 
-	return render_to_response('coursefinity/index.html', context_dict, context)
+	return render_to_response('coursefinity/career_list.html', context_dict, context)
 
 def onlinecareer(request, career_url): 
 #kanina hindi madetect ung career_url unnecessary argument daw, ngayon ok na
@@ -55,12 +60,16 @@ def onlinecareer(request, career_url):
 def course_list(request, career_url, program_url):
 
 	context = RequestContext(request)
+	context_dict = {}
 
-	course_list = Courses.objects.all()
+	program_name = decode_url(program_url)
+	context_dict['program_name'] = program_name
 	
-	program_list = get_program_list()
+	prog = Program.objects.get(name = program_name)
+	context_dict['prog'] = prog
 
-	context_dict = {'program_list': program_list, 'course_list': course_list}
+	course_list = Courses.objects.filter(program=prog)
+	context_dict['course_list'] = course_list
 
 	return render_to_response('coursefinity/course_list.html', context_dict, context)
 
@@ -70,8 +79,8 @@ def course_list(request, career_url, program_url):
 def blog(request):
 	return render(request, 'coursefinity/blog.html')
 
-def contact(request):
-	return render(request, 'coursefinity/contact.html')
+def about(request):
+	return render(request, 'coursefinity/about.html')
 
 def inspiration(request):
 	#obtain context from the Http request

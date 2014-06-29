@@ -66,10 +66,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'coursefinity',
-        #'USER': 'dbronola',
-        #'PASSWORD': '',
-        #'HOST': 'localhost',
-        #'PORT': '',
+        'USER': 'dbronola',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
 
     }
 }
@@ -91,18 +91,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+    )
 
 TEMPLATE_DIRS = (
     TEMPLATE_PATH,
     )
 
 #ADDED FOR DEPLOYMENT SETTINGS
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
 
-import dj_database_url
+#import dj_database_url
 
-DATABASES['default'] =  dj_database_url.config()
+#DATABASES['default'] =  dj_database_url.config()
 
 #################################################
 

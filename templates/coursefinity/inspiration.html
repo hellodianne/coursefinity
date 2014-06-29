@@ -1,20 +1,34 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Coursefinity</title>
-	</head>
+{% extends "coursefinity/base.html" %}
 
-	<body>
-	<ul>
-	{% if article_list %}
-		{% for link in article_list %}
-    	<li>
-    		<a href="{{ link.url }}"><strong>{{ link.title }}</strong></a>
-    	</li>
-    	{% endfor %}
-    {% else %}
-    	<li>No article at present.</li>
-    {% endif %}
-	</ul>
-	</body>
-</html>
+{% load static %}
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron" style="margin-top:70px;">
+        <p>'t p!ss down my back and tell me it's raining. this is the ak-47 assault rifle, the preferred weapon of your enemy; and it makes a distinctive sound when fired at you, so remember.</p>
+    </div>
+</div>
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Inspirational links</th>
+        </tr>
+    </thead>
+
+
+	<tbody>
+        
+	       {% if article_list %}
+	        {% for link in article_list %}
+    	   <tr><td>
+    		  <a href="{{ link.url }}"><strong>{{ link.title }}</strong></a>
+    	   </td></tr>
+    	   {% endfor %}
+            {% else %}
+    	   <td>No article at present.</td>
+            {% endif %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

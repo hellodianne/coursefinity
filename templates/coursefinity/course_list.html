@@ -1,9 +1,22 @@
+{% extends "coursefinity/base.html" %}
+
+{% load static %}
+
+{% block body_block %}
+
+<div id="wrapper">
+	<div id="courselist">
+
+<h3> {{program_name}} </h3>
+
 <ul>
 	{% if course_list %}
 		{% for courses in course_list %}
-			<li> {{ course.name }}</a></li>
+			<li> <a href="{{ courses.url }}"</a> {{courses.title}}</li>
 		{% endfor %}
 	{% else %}
 		<li>No courses at present.</li>
 	{% endif %}
 </ul>
+</div>
+{% endblock %}

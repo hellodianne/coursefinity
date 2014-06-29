@@ -1,12 +1,25 @@
-<h1> {{ career.name }} </h1>
-<p> {{ career.body }} </p>
-{% if program_list %}
-<ul>
-	{% for program in program_list %}
-	<li> <a href="/coursefinity/onlinecareer/{{career.name}}/{{ program.url }}/course_list"> {{ program.name }}</a></li>
-	{% endfor %}
-</ul>
-{% else %}
-<strong>There are no programs present.</strong>
-{% endif %}
+{% extends "coursefinity/base.html" %}
 
+{% load static %}
+
+{% block body_block %}
+<div class="container">
+	<div class="jumbotron" style="margin-top:70px;">
+			<h2> {{ career.name }} </h2>
+				<p> {{ career.body }} </p>
+	</div>
+</div>
+	<ul>
+		{% if program_list %}
+			{% for program in program_list %}
+				<div class="careerbox">
+					<li> <a href="/coursefinity/coursetracks/{{career.name}}/{{ program.url }}/course_list"> {{ program.name }}</a></li>
+				</div>
+
+			{% endfor %}
+		{% else %}
+			<li>There are no programs present.</li>
+		{% endif %}
+	</ul>
+
+{% endblock %}

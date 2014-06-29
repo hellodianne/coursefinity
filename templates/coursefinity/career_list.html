@@ -1,9 +1,24 @@
-<ul>
-	{% if career_list %}
-		{% for career in career_list %}
-			<li><a href="/coursefinity/onlinecareer/{{career.url}}"> {{ career.name }}</a></li>
-		{% endfor %}
-	{% else %}
-		<li>No careers at present.</li>
-	{% endif %}
-</ul>
+{% extends "coursefinity/base.html" %}
+
+{% load static %}
+
+{% block body_block %}
+<div class="container">
+	<div class="jumbotron" style="margin-top:70px;">
+		<p>because i'm green isn't it! here she comes to wreck the day. excuse me, i'd like to ass you a few questions. look at that, it's exactly three seconds before i honk your nose and pull your underwear over your head. brain freeze. </p>
+	</div>
+</div>
+	<ul>
+		{% if career_list %}
+			{% for career in career_list %}
+				<div class="careerbox">
+					<li><a href="/coursefinity/coursetracks/{{career.url}}"> {{ career.name }}</a></li>
+				</div>
+
+			{% endfor %}
+		{% else %}
+			<li>No careers at present.</li>
+		{% endif %}
+	</ul>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+ul
+{
+list-style-type: none;
+}
+
+#nav-inner {
+	border-style: solid;
+	border-color: red;
+
+}
+#nav {
+	display: inline;
+	border-style: solid;
+	border-color: blue;
+}
+
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    width:960px;
+}
+/*--career_list.html*/
+.careerbox {
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 32px;
+  font-weight: 900;
+  color: inherit;
+  background-color: #cfb7ab;
+  width: 600px;
+  height: 80px;
+  text-align: center;
+}
+
+
+/*--onlinecareer.html*/
+#coursetrack {
+	background-color: purple;
+	margin-top: 50px;
+}
+
+/*--courselist.html*/
+#courselist {
+	background-color: purple;
+	margin-top: 50px;
+}
+
+/*--inspiration.html*/
+#inspiration{
+	background-color: white;
+}
+
+
+
