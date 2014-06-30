@@ -15,7 +15,7 @@ BASE_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(BASE_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
-root = lambda * x: os.path.join(os.path.abspath(PROJECT_ROOT), *x)
+root = lambda * x: os.path.join(os.path.abspath(PROJECT_PATH), *x)
 
 #/Users/dbronola/coursefinityProject/templates
 
