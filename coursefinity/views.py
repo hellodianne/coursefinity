@@ -46,8 +46,10 @@ def onlinecareer(request, career_url):
 #kanina hindi madetect ung career_url unnecessary argument daw, ngayon ok na
 #walang pinass na argument dito
 	context = RequestContext(request)
+	careername = decode_url(career_url)
+	car = Career.objects.get(name=careername)
 
-	program_list = get_program_list()
+	program_list = Program.objects.filter(career=car)
 
 	context_dict = {'program_list': program_list}
 
