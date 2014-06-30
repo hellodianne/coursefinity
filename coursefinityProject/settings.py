@@ -15,7 +15,6 @@ BASE_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(BASE_DIR, os.pardir)
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
-root = lambda * x: os.path.join(os.path.abspath(PROJECT_PATH), *x)
 
 #/Users/dbronola/coursefinityProject/templates
 
@@ -94,7 +93,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = root("..","static")
+STATIC_ROOT = os.path.join(PROJECT_PATH, 'static/')
 
 STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 
