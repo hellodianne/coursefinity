@@ -51,6 +51,9 @@ def onlinecareer(request, career_url):
 
 	program_list = Program.objects.filter(career=car)
 
+	for prog in program_list:
+		prog.url = encode_url(prog.name)
+
 	context_dict = {'program_list': program_list}
 
 	career = Career.objects.get(name=career_url) #ah para pala to sa career.name

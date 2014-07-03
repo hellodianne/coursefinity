@@ -4,19 +4,26 @@
 
 {% block body_block %}
 
-<div id="wrapper">
-	<div id="courselist">
+<div class="container">
+	<div class="jumbotron" style="margin-top:70px;">
+		<h2> {{program_name}} </h2>
+	</div>
+</div>
 
-<h3> {{program_name}} </h3>
-
-<ul>
-	{% if course_list %}
-		{% for courses in course_list %}
-			<li> <a href="{{ courses.url }}"</a> {{courses.title}}</li>
+<div class="table-responsive">
+	<table class="table table-hover">
+		<thead></thead>
+		<tbody>
+			{% if course_list %}
+			{% for courses in course_list %}
+			<tr><td>
+			<a href="{{ courses.url }}"><strong>{{courses.title}}</strong></a>
+			</td></tr>
 		{% endfor %}
 	{% else %}
-		<li>No courses at present.</li>
+		<td>No courses at present.</td>
 	{% endif %}
-</ul>
+</tbody>
+</table>
 </div>
 {% endblock %}
