@@ -22,6 +22,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# remove before deployment
 SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -122,7 +123,8 @@ TEMPLATE_DIRS = (
 
 
 
-#ADDED FOR DEPLOYMENT SETTINGS
+#ADDED FOR DEPLOYMENT SETTINGS 
+#uncomment before deployment
 ALLOWED_HOSTS = ['*']
 
 import dj_database_url
