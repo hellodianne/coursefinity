@@ -47,6 +47,7 @@ def onlinecareer(request, career_url):
 #walang pinass na argument dito
 	context = RequestContext(request)
 	careername = decode_url(career_url)
+
 	car = Career.objects.get(name=careername)
 
 	program_list = Program.objects.filter(career=car)
@@ -56,9 +57,13 @@ def onlinecareer(request, career_url):
 
 	context_dict = {'program_list': program_list}
 
-	career = Career.objects.get(name=career_url) #ah para pala to sa career.name
+	career = Career.objects.get(name=careername)
+
+	career.url = encode_url(career.name)
 
 	context_dict['career'] = career 
+
+
 
 	return render_to_response('coursefinity/onlinecareer.html', context_dict, context)
 
