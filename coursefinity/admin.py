@@ -8,7 +8,11 @@ class CareerAdmin(admin.ModelAdmin):
 	list_display= ('name', 'body')
 
 class ProgramAdmin(admin.ModelAdmin):
-	list_display = ('career', 'name')
+	fields = ['career', 'name']
+	list_display = ('get_career',)
+
+	def get_career(self, obj):
+		return "\n".join([c.name for c in obj.career.all()])
 
 
 class CoursesAdmin(admin.ModelAdmin):

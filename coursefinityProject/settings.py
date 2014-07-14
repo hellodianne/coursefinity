@@ -23,7 +23,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # remove before deployment
-SECRET_KEY = 'z_p3bqsj0=+)rj8m3dx6=acj_&ci36nw(m+vwi$lj6k9jkgf8j'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -127,9 +127,9 @@ TEMPLATE_DIRS = (
 #uncomment before deployment
 #ALLOWED_HOSTS = ['*']
 
-import dj_database_url
+#import dj_database_url
 
-DATABASES['default'] =  dj_database_url.config()
+#DATABASES['default'] =  dj_database_url.config()
 
 #################################################
 

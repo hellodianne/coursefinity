@@ -73,9 +73,11 @@ def course_list(request, career_url, program_url):
 	context_dict = {}
 
 	program_name = decode_url(program_url)
+	career_name = decode_url(career_url)
+	career_object = Career.objects.get(name=career_name)
 	context_dict['program_name'] = program_name
 	
-	prog = Program.objects.get(name = program_name)
+	prog = Program.objects.get(name = program_name, career__id=career_object.id)
 	context_dict['prog'] = prog
 
 	course_list = Courses.objects.filter(program=prog)

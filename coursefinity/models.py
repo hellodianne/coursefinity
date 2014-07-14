@@ -18,7 +18,7 @@ class Career(models.Model):
 		return self.name
 
 class Program(models.Model):
-	career = models.ForeignKey(Career) 
+	career = models.ManyToManyField(Career) 
 	name = models.CharField(max_length=128)
 
 	def __unicode__(self):
