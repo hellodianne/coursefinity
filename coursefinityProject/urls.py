@@ -19,6 +19,5 @@ urlpatterns = patterns('',
 	url(r'^coursetracks/(?P<career_url>\w+)/(?P<program_url>\w+)/course_list$', views.course_list, name='course_list'),
 	#ex coursefinity/coursetracks/Developer :
 	url(r'^coursetracks/(?P<career_url>\w+)$', views.onlinecareer, name='onlinecareer'),
-	url(r'^blog/$', views.blog, name='blog'),
 	url(r'^about/$', views.about, name='about'),
 )
