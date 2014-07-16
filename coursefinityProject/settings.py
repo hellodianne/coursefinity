@@ -26,7 +26,7 @@ TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 SECRET_KEY = 'z_p3bqsj0=+)rj8m3dx6=acj_&ci36nw(m+vwi$lj6k9jkgf8j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -100,6 +100,17 @@ STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 
 STATIC_URL = '/static/'
 
+
+####FOR DEPLOYMENT###
+if not DEBUG:
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = S3_URL
 
 STATICFILES_DIRS = (
     STATIC_PATH,
