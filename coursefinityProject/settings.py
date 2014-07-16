@@ -100,7 +100,6 @@ STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
 
 STATIC_URL = '/static/'
 
-#uncomment for aws
 
 ####FOR DEPLOYMENT###
 if not DEBUG:
