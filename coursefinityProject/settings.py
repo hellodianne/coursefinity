@@ -125,11 +125,11 @@ TEMPLATE_DIRS = (
 
 #ADDED FOR DEPLOYMENT SETTINGS 
 #uncomment before deployment
-#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
-#import dj_database_url
+import dj_database_url
 
-#DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 
 #################################################
 
