@@ -20,4 +20,7 @@ urlpatterns = patterns('',
 	#ex coursefinity/coursetracks/Developer :
 	url(r'^coursetracks/(?P<career_url>\w+)$', views.onlinecareer, name='onlinecareer'),
 	url(r'^about/$', views.about, name='about'),
+	url(r'^login/$', views.user_login, name='login'),
+	url(r'^register/$', views.register, name='register'),
+	#url(r'^add_course/$', views.add_course, name='add_course'),
 )

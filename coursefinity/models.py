@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 #Model for articles under inspiration
 #manipulate in admin
@@ -32,6 +33,12 @@ class Courses(models.Model):
 	
 	def __unicode__(self):
 		return self.title
+
+class UserProfile(models.Model):
+	user = models.OneToOneField(User)
+
+	def __unicode__(self):
+		return self.user.username
 
 
 

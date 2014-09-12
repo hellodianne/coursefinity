@@ -1,7 +1,10 @@
 from django.shortcuts import render, render_to_response, redirect, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
-from coursefinity.models import Link, Career, Program, Courses
+from coursefinity.models import Link, Career, Program, Courses, UserProfile
+from coursefinity.forms import UserForm
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 def encode_url(str):
 	return str.replace(' ', '_')
@@ -103,5 +106,59 @@ def inspiration(request):
 
 	return render_to_response('coursefinity/inspiration.html', context_dict, context)
 
+def register(request):
+	context = RequestContext(request)
+	context_dict ={}
 
+	registered = False
+
+	if request.method == 'POST':
+		user_form = UserForm(data=request.POST)
+
+		if user_form.is_valid():
+			user = user_form.save()
+
+			user.set_password(user.password)
+			user.save()
+
+
+
+			registered = True
+
+		else:
+			print user_form.errors
+
+	else:
+		user_form = UserForm()
+
+	context_dict['user_form'] = user_form
+	context_dict['registered'] = registered
+
+	return render_to_response('coursefinity/register.html', context_dict, context)
+
+def user_login(request):
+	context = RequestContext(request)
+	context_dict = {}
+
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+
+		user = authenticate(username=username, password=password)
+
+		if user is not None:
+
+			if user.is_active:
+				login(request, user)
+				return HttpResponseRedirect('/coursetracks')
+			else:
+				context_dict['disabled_account'] = True
+				return render_to_response('coursefinity/login.html', context_dict, context)
+		else:
+			print "Invalid login details: {0}, {1}".format(username, password)
+			context_dict['bad_details'] = True
+			return render_to_response('coursefinity/login.html', context_dict, context)
+
+	else:
+		return render_to_response('coursefinity/login.html', context, context_dict)
 

@@ -1,0 +1,31 @@
+{% extends "coursefinity/base.html" %}
+
+{%block title %} Register with Coursefinity {% endblock %}
+
+{% block body_block %}
+
+<div class='hero-unit'>
+	<h1> Register! </h1>
+
+	<div class="container">
+		{% if registered %}
+		<p> Thank you for registering.</p>
+		<p><a href="/coursefinity/login">Login</a></p>
+		{% else %}
+
+		<form class="form-signin span8" id="user_form" method="post" action="" enctype="multipart/form-data">
+			{% csrf_token %}
+			<h2 class="form-signin-heading">Sign up Here</h2>
+			{% for field in user_form.visible_fields %}
+			{{ field.errors }}
+			{{ field.help_text }}<br/>
+			{{ field }}
+			{% endfor %}
+
+		<input class="btn btn-primary" type="submit" value="Register"/>
+	</form>
+	{% endif %}
+</div>
+</div>
+{% endblock %}
+
