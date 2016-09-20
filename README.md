@@ -1,6 +1,6 @@
 # Coursefinity
 
-<p>[Check it out!](http://obscure-wildwood-3328.herokuapp.com/)</p>
+[Check it out!](http://obscure-wildwood-3328.herokuapp.com/)
 
 <p>Coursefinity is a project to reduce the barrier in education. It is inspired by the high cost of education, the availability of free high quality courses, and the opportunities to make a career through self-learning.</p>
 
